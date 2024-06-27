@@ -1,0 +1,12 @@
+{
+  "author": "Aneena",
+  "name": "Tabs Organiser",
+  "version": "1.0",
+  "action": {
+    "default_popup": "hello.html"
+  },
+  "manifest_version": 3,
+  "permissions": ["tabs"],
+  "description": "Automatically categorize open tabs based on their content, and action users to manually create and manage custom categories for their tabs",
+  "background": {}
+}
