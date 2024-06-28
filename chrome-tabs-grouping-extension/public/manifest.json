@@ -1,0 +1,14 @@
+{
+  "author": "Aneena",
+  "name": "Tads Organiser",
+  "version": "1.0",
+  "action": {
+    "default_page": "index.html"
+  },
+  "manifest_version": 3,
+  "permissions": ["tabs", "bookmarks"],
+  "description": "Automatically categorize open tabs based on their content, and action users to manually create and manage custom categories for their tabs",
+  "background": {
+    "service_worker": "tabs.js"
+  }
+}
