@@ -7,4 +7,8 @@ chrome.tabs
 
 chrome.action.onClicked.addListener(() => {
   console.log('Clicked');
+  chrome.tabs.create({
+    url: 'index.html',
+    active: !0,
+  });
 });

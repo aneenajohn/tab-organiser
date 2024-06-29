@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [tabs, setTabs] = useState([]);
+
+  function updateTabs() {
+    window.chrome.tabs
+      .query({})
+      .then((resp) => {
+        console.log('From app: ', resp);
+        setTabs(resp);
+      })
+      .catch((err) => console.error('Err from app:', err));
+  }
+
+  useEffect(() => {
+    updateTabs();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <p>Adei tabs vanduru olungaaa, body sodaaa</p>
     </div>
   );
 }
