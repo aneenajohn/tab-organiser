@@ -12,3 +12,19 @@ chrome.action.onClicked.addListener(() => {
     active: !0,
   });
 });
+
+chrome.tabs.onCreated.addListener(() => {
+  chrome.runtime.sendMessage({ action: 'updateTabs' });
+});
+
+chrome.tabs.onRemoved.addListener(() => {
+  chrome.runtime.sendMessage({ action: 'updateTabs' });
+});
+
+chrome.tabs.onUpdated.addListener(() => {
+  chrome.runtime.sendMessage({ action: 'updateTabs' });
+});
+
+chrome.tabs.onActivated.addListener(() => {
+  chrome.runtime.sendMessage({ action: 'updateTabs' });
+});

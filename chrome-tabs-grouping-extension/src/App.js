@@ -16,11 +16,45 @@ function App() {
 
   useEffect(() => {
     updateTabs();
+
+    const handleMessage = (message) => {
+      if (message.action === 'updateTabs') {
+        updateTabs();
+      }
+    };
+
+    window.chrome.runtime.onMessage.addListener(handleMessage);
+
+    return () => {
+      window.chrome.runtime.onMessage.removeListener(handleMessage);
+    };
   }, []);
 
   return (
     <div className='App'>
       <p>Adei tabs vanduru olungaaa, body sodaaa</p>
+      <div>
+        {tabs?.length ? (
+          <strong>
+            Number of open tabs{' '}
+            <span style={{ fontSize: '1.5rem', textDecoration: 'underline' }}>
+              {tabs.length}
+            </span>{' '}
+          </strong>
+        ) : (
+          <></>
+        )}
+        {tabs?.length ? (
+          tabs.map((tab) => (
+            <div className='tab'>
+              <b>{tab.title}</b>
+              <p>{tab.url}</p>
+            </div>
+          ))
+        ) : (
+          <p>No tabs found</p>
+        )}
+      </div>
     </div>
   );
 }
