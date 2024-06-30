@@ -30,6 +30,11 @@ function App() {
     };
   }, []);
 
+  const navigateToTab = (tabId) => {
+    window.chrome.tabs.update(tabId, { active: true });
+    window.chrome.windows.update(tabId, { focused: true });
+  };
+
   return (
     <div className='App'>
       <p>Adei tabs vanduru olungaaa, body sodaaa</p>
@@ -46,7 +51,7 @@ function App() {
         )}
         {tabs?.length ? (
           tabs.map((tab) => (
-            <div className='tab'>
+            <div className='tab' onClick={() => navigateToTab(tab.id)}>
               <b>{tab.title}</b>
               <p>{tab.url}</p>
             </div>
