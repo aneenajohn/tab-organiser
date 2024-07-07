@@ -120,10 +120,8 @@ function App() {
               <button onClick={() => sortTabsByTitle(false)}>
                 Sort by Title
               </button>
-              <button onClick={() => sortTabsByTitle(false)}>
-                Sort by URL
-              </button>
-              <button onClick={() => sortTabsByTitle(false)}>
+              <button onClick={() => sortTabsByUrl(false)}>Sort by URL</button>
+              <button onClick={() => sortTabsByPinned(false)}>
                 Sort by Pinned Status
               </button>
             </div>
@@ -140,10 +138,10 @@ function App() {
               <button onClick={() => sortTabsByTitle(true)}>
                 Sort and move tads by Title
               </button>
-              <button onClick={() => sortTabsByTitle(true)}>
+              <button onClick={() => sortTabsByUrl(true)}>
                 Sort and move tads by URL
               </button>
-              <button onClick={() => sortTabsByTitle(true)}>
+              <button onClick={() => sortTabsByPinned(true)}>
                 Sort and move tads by Pinned Status
               </button>
             </div>
